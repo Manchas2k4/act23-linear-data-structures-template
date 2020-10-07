@@ -96,10 +96,11 @@ string convertInfixToPostfix(const string &expr) {
 	queue<string> input;
 	queue<string> result;
 	stack<string> stack;
+  string token;
 
 	input = tokenize(expr);
 	while (!input.empty()) {
-
+    token = input.front(); input.pop();
 	}
 	return string("");
 }

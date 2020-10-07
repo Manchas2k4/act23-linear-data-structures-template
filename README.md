@@ -1,142 +1,66 @@
-# Act 2.1 - Implementación en equipo de un ADT de estructura de datos lineales
+# Act 2.3 - Actividad Integral estructura de datos lineales (Evidencia Competencia)
 
-## <span style="color: rgb(26, 99, 169);">¿Qué tengo que hacer?</span> 
-Diseña e implementa en forma <span style="text-decoration-line: underline;">forma individual</span>, siguiendo la especificación de la interfaz para un ADT que represente una estructura de datos lineal:
+## <span style="color: rgb(26, 99, 169);">¿Qué tengo que hacer?</span>
+Diseña e implementa en forma <span style="text-decoration-line: underline;">forma individual</span>, las funciones que resuelvan los problemas que se describen a continuación.
 
-Dependiendo del ADT de estructura de datos lineal deberán implementar las operaciones CRUD (Create, Read (buscar), Update, Delete) elementos en la estructura de datos. Algunas operaciones no aplican para ciertas estructura de datos 
+En la parte superior del archivo coloca, en comentarios, tus datos. Por ejemplo:
+```
+// =========================================================
+// File: activity.h
+// Author:
+// Date:
+// =========================================================
+```
+Las funciones que debes implementar son:
 
-<table style="height: 10px; width: 0%; border-collapse: collapse; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid;" border="1">
-<tbody>
-<tr style="height: 24px;">
-<td style="width: 30%; height: 10px; background-color: rgb(25, 99, 169);" rowspan="5"><span style="font-size: 18pt; color: rgb(255, 255, 255);">insert_at (create)</span></td>
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);">Descripción</td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);">
-Agrega un elemento en *index* (0 <= *index* <= *size*). El elemento que estaba en esa posición se desplaza hacia la derecha.
-</td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);">Entrada</td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);">*val*, valor a ser insertado y la posición, *index*, en que se insertará.</td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);">Salida</td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);">Estructura de datos valida mostrando la inserción del elemento. Si la posición es inválida, deberá arrojar una excepción.</td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);"><span style="color: rgb(0, 0, 0);">Precondición</span></td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);"><span style="color: rgb(0, 0, 0);">Una estructura válida.</span></td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 10px; background-color: rgb(0, 139, 247);"><span style="color: rgb(0, 0, 0);">Postcondición</span></td>
-<td style="width: 0px; height: 10px; background-color: rgb(183, 219, 255);"><span style="color: rgb(0, 0, 0);">Estructura modificada.</span></td>
-</tr>
-</tbody>
-</table>
+ - ``` bool balancedBrackets(const string &expr)```
+ Devuelve ```true``` si el string  ```expr``` que recibe como parámetro contiene una expresión en donde todos sus símbolos de agrupación (paréntesis ```()```, corchetes ```[]``` y llaves ```{}```) están correctamente anidados y balanceados. Devuelve ```false``` en caso contrario. Se debe ignorar cualquier carácter de ```expr``` que no sea paréntesis, corchetes o llaves.
 
-<br>
+<br> **Descripción del algoritmo:** Empieza con una pila vacía. Recorre cada uno de los caracteres de ```expr``` de izquierda a derecha:
+ - Si encuentras un símbolo de apertura (```(```, ```[``` o ```{```) debes insertarlo en la pila.
+ - Si encuentras un carácter de cierre (```)```, ```]``` o ```}```) debes remover el carácter del tope de la pila y verificar que ambos caracteres hagan pareja. Debes terminar el algoritmo con ```false``` si los respectivos caracteres no hacen pareja, o si la pila estaba vacía antes de intentar remover el elemento del tope.
 
-<table style="height: 10px; width: 0%; border-collapse: collapse; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid;" border="1">
-<tbody>
-<tr style="height: 24px;">
-<td style="width: 30%; height: 10px; background-color: rgb(25, 99, 169);" rowspan="5"><span style="font-size: 18pt; color: rgb(255, 255, 255);">get (read)</span></td>
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);">Descripción</td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);">
-Regresa el elemento que está en la posición indicada por *index* (0 <= *index* < *size*).
-</td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);">Entrada</td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);">La posición, *index*, del elemento requerido.</td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);">Salida</td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);">Elemento que se encuentra en la posición indicada. Si la posición es inválida, deberá arrojar una excepción.</td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);"><span style="color: rgb(0, 0, 0);">Precondición</span></td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);"><span style="color: rgb(0, 0, 0);">Una estructura válida.</span></td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 10px; background-color: rgb(0, 139, 247);"><span style="color: rgb(0, 0, 0);">Postcondición</span></td>
-<td style="width: 0px; height: 10px; background-color: rgb(183, 219, 255);"><span style="color: rgb(0, 0, 0);">Nada.</span></td>
-</tbody>
-</table>
+<br> Si al final la pila está vacía debes devolver ```true```, de otra forma debes devolver ```false```.
 
-<br>
+2. ```string convertInfixToPostfix(const string &expr) ```
+Recibe como parámetro un string,  ```expr```, que contiene una expresión aritmética en notación infija. Devuelve un string con la expresión equivalente en notación posfija. No realiza ningún tipo de validación respecto a la expresión de entrada.
 
-<table style="height: 10px; width: 0%; border-collapse: collapse; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid;" border="1">
-<tbody>
-<tr style="height: 24px;">
-<td style="width: 30%; height: 10px; background-color: rgb(25, 99, 169);" rowspan="5"><span style="font-size: 18pt; color: rgb(255, 255, 255);">indexOf</span></td>
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);">Descripción</td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);">
-Regresa la posición en que se encuentra el elemento *val*.
-</td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);">Entrada</td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);">El elemento a buscar.</td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);">Salida</td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);">La posición del elemento buscado. Si el elemento no se encuentra, regresa -1.</td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);"><span style="color: rgb(0, 0, 0);">Precondición</span></td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);"><span style="color: rgb(0, 0, 0);">Estructura de datos válida</span></td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 10px; background-color: rgb(0, 139, 247);"><span style="color: rgb(0, 0, 0);">Postcondición</span></td>
-<td style="width: 0px; height: 10px; background-color: rgb(183, 219, 255);"><span style="color: rgb(0, 0, 0);">Nada</span></td>
-</tr>
-</tbody>
-</table>
+<br>Para implementar este algoritmo, deberás emplear dos funciones auxiliares que **ya se encuentran implementadas**:
 
-<br>
+ - La función ```tokenize``` que recibe un string y lo separa en sus elementos básicos, colocándolos en una fila de strings. Por ejemplo, si la entrada es el string "123 34 7+*-", entonces devuelve una fila con los siguientes elementos: "123", "34", "7", "+", "*" y "-".
+ - La función ```hasHigherPrecedence``` que determina si el elemento del tope de la pila tiene mayor precedencia que el operador op.
 
-<table style="height: 10px; width: 0%; border-collapse: collapse; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid;" border="1">
-<tbody>
-<tr style="height: 24px;">
-<td style="width: 30%; height: 10px; background-color: rgb(25, 99, 169);" rowspan="5"><span style="font-size: 18pt; color: rgb(255, 255, 255);">remove_at (del)</span></td>
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);">Descripción</td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);">
-Elimina el elemento que se encuentra en *index* (0 <= *index* < *size*).
-</td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);">Entrada</td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);">La posición, *index*, del elemento a eliminar.</td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);">Salida</td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);">Elemento que se encuentra en la posición indicada. Si la posición es inválida, deberá arrojar una excepción.</td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 0px; background-color: rgb(0, 139, 247);"><span style="color: rgb(0, 0, 0);">Precondición</span></td>
-<td style="width: 0px; height: 0px; background-color: rgb(183, 219, 255);"><span style="color: rgb(0, 0, 0);">Estructura de datos válida</span></td>
-</tr>
-<tr style="height: 24px;">
-<td style="width: 0px; height: 10px; background-color: rgb(0, 139, 247);"><span style="color: rgb(0, 0, 0);">Postcondición</span></td>
-<td style="width: 0px; height: 10px; background-color: rgb(183, 219, 255);"><span style="color: rgb(0, 0, 0);">Estructura de datos debidamente actualizada</span></td>
-</tr>
-</tbody>
-</table>
+<br>**Descripción del algoritmo:** Empieza con una pila vacía y una fila resultante vacía. Toma los elementos de ```expr``` de la lista generada por ```tokenize``` y procesa dichos elementos en orden FIFO:
+
+ - Si encuentras un número, insértalo en la fila resultante.
+ - Si encuentras un paréntesis izquierdo ```(```, insértalo en la pila.
+ - Si encuentras un operador ⊗ (donde ⊗ puede ser ```+```, ```-```, ```*``` o ```/)```, realiza lo siguiente:
+    - Mientras que la pila no esté vacía y además el tope de la pila sea diferente al paréntesis izquierdo ```(```, realiza lo siguiente:
+        - Si el elemento del tope de la pila tiene mayor precedencia que ⊗, entonces hay que sacar dicho elemento de la pila e insertarlo en la fila resultante. De lo contrario se debe terminar el ciclo «mientras» más anidado. Si el elemento del tope de la pila tiene mayor precedencia que ⊗, entonces hay que sacar dicho elemento de la pila e insertarlo en la fila resultante. De lo contrario se debe terminar el ciclo «mientras» más anidado.
+    - Inserta ⊗ en la pila.
+ - Si encuentras un paréntesis derecho ```)```, realiza lo siguiente:
+     - Mientras que la pila no esté vacía y además el tope de la pila sea diferente al paréntesis izquierdo ```(```, realiza lo siguiente:
+         - Saca el elemento del tope de la pila e insértalo en la fila resultante.
+     - Si la pila no está vacía, remueve el paréntesis izquierdo ```(``` del tope de la pila.
+
+<br>Si, al llegar a este punto, la pila no está vacía, remueve uno por uno todos elementos de la pila e insértalos en la fila resultante.
+
+<br>Finalmente, devuelve una cadena conformada por la concatenación de todos los elementos de la fila resultante, usando un espacio en blanco como separador entre elementos.
 
 <br>Todas las funcionalidades deberán de estar correctamente alineadas y documentadas.&nbsp; Recuerda que todas las funcionalidades deberán pasar exitosamente todas las pruebas. Como parte de la documentación deberá incluirse la complejidad de cada una de ellas.
 
 ## <span style="color: rgb(26, 99, 169);">**¿Bajo qué criterios se evalúa mi evidencia?**</span>
 
 - **80%** - Para cada una de las funcionalidades se evaluará:
-        
+
     - **Excelente (80%)** - pasa correctamente todos los casos de prueba.
     - **Muy Bien (60%)** - pasa correctamente el 75% de los casos de prueba.
     - **Bien (40%)** - pasa correctamente el 50% de los casos de prueba.
     - **Insuficiente (20%)** - pasa correctamente menos del 50% de los casos de prueba.
-    
+
 
 - **10%** - El código deberá seguir los lineamientos estipulados en el estándar de codificación: <span class="instructure_file_holder link_holder">[liga_estándar_codificación](estandar.pdf)</span>
 - **10%** - Se respetan los nombres de las funciones en la aplicación.
 
 ## <span style="color: rgb(26, 99, 169);">**¿Dónde la entrego?**</span>
 Entrega los archivos correspondientes de la actividad, en el sitio de Github. Coloca la liga del repositorio en Canvas.
-
