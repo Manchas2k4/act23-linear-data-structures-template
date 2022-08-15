@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN
 #include <string>
-#include "catch.hpp"
+#include "catch.h"
 #include "activity.h"
 
 TEST_CASE("testing balancedBrackets", "[balancedBrackets]") {
