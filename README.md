@@ -54,7 +54,6 @@ Recibe como parámetro un string,  ```expr```, que contiene una expresión aritm
 - **70%** - Para cada una de las funcionalidades se evaluará:
 
     - **Excelente (70%)** - pasa correctamente todos los casos de prueba.
-    - **Muy Bien (55%)** - pasa correctamente el 75% de los casos de prueba.
     - **Bien (35%)** - pasa correctamente el 50% de los casos de prueba.
     - **Insuficiente (17%)** - pasa correctamente menos del 50% de los casos de prueba.
 
